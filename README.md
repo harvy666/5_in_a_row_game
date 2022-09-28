@@ -1,1 +1,1 @@
-# 5_in_a_row_game
+Some basic 5 in a row game.
