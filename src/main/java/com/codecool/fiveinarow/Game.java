@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-public class Game implements GameInterface {
+public class Game {
 
     private int[][] board;
     private int nRows;
@@ -45,14 +45,6 @@ public class Game implements GameInterface {
 
 
         return new Game(size,size,5);
-    }
-
-    public int[][] getBoard() {
-        return board;
-    }
-
-    public void setBoard(int[][] board) {
-        this.board = board;
     }
 
     public void switchPlayer(int number) {
@@ -124,17 +116,9 @@ public class Game implements GameInterface {
         return row;
     }
 
-    public int[] getAiMove(int player) {
-        return null;
-    } //does not work
-
     public void mark(int player, int row, int col) {
         board[row][col] = player;
 
-    }
-
-    public boolean hasWon(int player, int howMany) { //does not work
-        return false;
     }
 
 
@@ -315,10 +299,6 @@ public class Game implements GameInterface {
     }
 
 
-    public void printResult(int player) {
-    }
-
-
     public void printResult(int player, int howMany, int row, int col) {
         if (hasWon(player, howMany, row, col)) {
             System.out.println();
@@ -332,9 +312,4 @@ public class Game implements GameInterface {
     }
 
 
-    public void enableAi(int player) {
-    }
-
-    public void play(int howMany) {
-    }
 }
