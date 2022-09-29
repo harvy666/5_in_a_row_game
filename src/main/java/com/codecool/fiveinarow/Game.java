@@ -44,7 +44,7 @@ public class Game {
         }
 
 
-        return new Game(size,size,5);
+        return new Game(size, size, 5); // the parameter howMany sets the winning length
     }
 
     public void switchPlayer(int number) {
@@ -55,12 +55,12 @@ public class Game {
         }
     }
 
-    public int[] getMove(int player) {
+    public void getMove(int player) {
         System.out.println("Player " + player + "'s move:");
         Scanner scanner = new Scanner(System.in);
 
-        int row=getRow(scanner);
-        int col=getCol(scanner);
+        int row = getRow(scanner);
+        int col = getCol(scanner);
 
 
         if (board[row][col] == 0) {
@@ -68,7 +68,6 @@ public class Game {
 
         } else System.out.println("Wrong move");
 
-        return moves; //never used
     }
 
     private int getCol(Scanner scanner) {
@@ -82,10 +81,10 @@ public class Game {
                     System.exit(0);
                 }
 
-                if (alphabet.indexOf(columnChar)<=nCols-1 && alphabet.indexOf(columnChar)>=0) {
-                    col=alphabet.indexOf(columnChar);
+                if (alphabet.indexOf(columnChar) <= nCols - 1 && alphabet.contains(columnChar)) {
+                    col = alphabet.indexOf(columnChar);
                     break;
-                }else {
+                } else {
                     System.out.println("Wrong letter!");
                 }
 
@@ -185,7 +184,7 @@ public class Game {
     }
 
 
-    public boolean checkWinRow(int player, int howMany, int row, int col) { //KÉSZ
+    public boolean checkWinRow(int player, int howMany, int row, int col) {
         int winningCondition = 1;
 
 
@@ -259,7 +258,7 @@ public class Game {
         return true;
     }
 
-    public void printBoard() {  // OK
+    public void printBoard() {
         System.out.print("   "); //gap for proper letter distancing
 
         for (int i = 0; i < nCols; i++) {
@@ -290,7 +289,7 @@ public class Game {
         System.out.println("");
     }
 
-    public boolean hasWon(int player, int howMany, int row, int col) { //This has won might work
+    public boolean hasWon(int player, int howMany, int row, int col) {
 
         return checkWinRow(player, howMany, row, col)
                 || checkWinCol(player, howMany, row, col)
